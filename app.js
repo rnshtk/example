@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mysql = require('mysql');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -38,11 +39,32 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'ODBC',
+  password: 'risa10aprml',
+  database: 'list_worktime'
+});
+
+connection.connect((err) => {
+  if (err) {
+    console.log('error connecting: ' + err.stack);
+    return;
+  }
+  console.log('success');
+});
+
 module.exports = app;
 
-app.get('/', (req, res) => {
-  res.render('top');
 
+app.get('/', (req, res) => {
+  connection.query(
+    'SELECT * FROM list_working',
+    (error, results) => {
+      console.log(results);
+      res.render('top');
+    }
+  );
 });
 
 app.listen(3000);
