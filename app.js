@@ -41,9 +41,9 @@ app.use(function(err, req, res, next) {
 
 var connection = mysql.createConnection({
   host: 'localhost',
-  user: 'ODBC',
+  user: 'root',
   password: 'risa10aprml',
-  database: 'list_worktime'
+  database: 'app'
 });
 
 connection.connect((err) => {
@@ -54,18 +54,29 @@ connection.connect((err) => {
   console.log('success');
 });
 
+
+
 module.exports = app;
 
 
-app.get('/', (req, res) => {
+app.get('/top', (req, res) => {
+  res.render('top');
+});
+
+app.get('/list', (req, res) => {
   connection.query(
-    'SELECT * FROM list_working',
+    'SELECT * FROM list_worktime',
     (error, results) => {
       console.log(results);
-      res.render('top');
+      res.render('list');
     }
   );
 });
 
+
+connection.end();
+
 app.listen(3000);
+
+//
 
