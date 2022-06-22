@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Hello World</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+
+    <title>打刻入力</title>
+
+    <link rel="stylesheet" href="styesheets/top.css" />
+
+    <script src="javascripts/top.js" defer></script>
   </head>
   <body>
-    <h1>Hello World</h1>
+    <div class="input">
+      <!-- リアルタイムの日時表示 https://shanabrian.com/web/javascript/date-real-time.php-->
+      <div id="real-clockbox">&nbsp;</div>
+
+      
+        <div class="state">
+          <p>
+            <!-- 勤務状態　-->
+            <!-- ex)勤務中 -->
+          </p>
+        </div>
+        
+        <div class="button">
+          <div class="btn1"><a href="#" onclick="check1(); return false;">出勤</a>
+          </div>
+          <div class="btn2"><a href="#" onclick="check2(); return false;">退勤</a></div>
+          <div class="btn3"><a href="#" onclick="check3(); return false;">休憩開始</a></div>
+          <div class="btn4"><a href="#" onclick="check4(); return false;">休憩終了</a></div>
+        </div>
+      
+      <div class="footer">
+        <a href="checklist.html">
+          打刻履歴確認ページへ
+        </a>
+      </div>
+    </div>
   </body>
 </html>
+
