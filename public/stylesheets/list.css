@@ -1,0 +1,49 @@
+header {
+  text-align: center;
+  font-size: 30px;
+}
+
+
+
+ul, li {
+    list-style-type: none;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+li {
+    list-style-type: none;
+    }
+
+footer {
+    text-align: center;
+}
+
+.table-head {
+  display: flex;
+  background-color: #b7cadc;
+  border-radius: 2px 2px 0 0;
+  height: 44px;
+  font-size: 16px;
+  line-height: 46px;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+.table-body {
+    text-align: center;
+}
+
+.table-body li {
+  height: 72px;
+  border: 1px solid #f0f4f9;
+  border-top: none;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.id-column {
+    display: none;
+}
