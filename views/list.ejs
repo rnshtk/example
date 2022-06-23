@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>打刻履歴確認</title>
+    <link rel="stylesheet" href="stylesheets/list.css" />
+    <script src="" defer></script>
+  </head>
+  <body>
+    <header>
+      <h2>打刻履歴確認</h2>
+    </header>
+    <content>
+        <div class="table-head">
+          <span class="id-column">ID</span>
+          <span>打刻時刻</span>
+          <span>勤務状態</span>
+        </div>
+        <ul class="table-body">
+          <% list_worktime.forEach((list_worktime) => { %>
+            <li>
+              <div class="list_worktime-data">
+                <span class="id-column"><%= list_worktime.id %></span>
+                <span class="datetime-column"><%= list_worktime.datetime %></span>
+                <span class="state-column"><%= list_worktime.state %></span>
+              </div>
+            </li>
+          <% }) %>
+        </ul>
+
+      
+    </content>
+    
+    <footer>
+      <a href="top">打刻入力画面に戻る</a>
+    </footer>
+  </body>
+</html>
