@@ -23,6 +23,53 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'risa10aprml',
+  database: 'app'
+});
+
+module.exports = app;
+
+app.get('/top', (req, res) => {
+  res.render('top');
+});
+
+//app.post('/', (req, res) => {
+
+ // connection.query(
+   // 'SELECT * FROM list_worktime', (error, results) => {
+     // console.log(results);
+   //   res.render('list',{list_worktime: results});
+    //}
+  //);
+//});
+
+app.get('/list', (req, res) => {
+  connection.query(
+    'SELECT * FROM list_worktime',(error, results) => {
+      res.render('list', {list_worktime: results});
+    }
+  );
+});
+
+
+app.post('/create', (req, res) => {
+  connection.query('insert into list_worktime (state) values (""出勤)',
+    
+
+  connection.query(
+    'SELECT * FROM list_worktime',
+    (error, results) => {
+      res.render('list', {list_worktime: results});
+    }
+  ));
+  
+});
+
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -39,12 +86,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'risa10aprml',
-  database: 'app'
-});
+
 
 connection.connect((err) => {
   if (err) {
@@ -55,26 +97,6 @@ connection.connect((err) => {
 });
 
 
-
-module.exports = app;
-
-
-app.get('/top', (req, res) => {
-  res.render('top');
-});
-
-app.get('/list', (req, res) => {
-  connection.query(
-    'SELECT * FROM list_worktime',
-    (error, results) => {
-      console.log(results);
-      res.render('list');
-    }
-  );
-});
-
-
-connection.end();
 
 app.listen(3000);
 
