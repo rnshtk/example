@@ -9,7 +9,7 @@
 
     <title>打刻入力</title>
 
-    <link rel="stylesheet" href="styesheets/top.css" />
+    <link rel="stylesheet" href="stylesheets/top.css" />
 
     <script src="javascripts/top.js" defer></script>
   </head>
@@ -27,15 +27,17 @@
         </div>
         
         <div class="button">
-          <div class="btn1"><a href="#" onclick="check1(); return false;">出勤</a>
+        <form action="/create" method="post">
+          <div class="btn1"><a href="#" type= "text" name = "begin" onclick="check1(); return false;">出勤</a>
           </div>
           <div class="btn2"><a href="#" onclick="check2(); return false;">退勤</a></div>
           <div class="btn3"><a href="#" onclick="check3(); return false;">休憩開始</a></div>
           <div class="btn4"><a href="#" onclick="check4(); return false;">休憩終了</a></div>
         </div>
+        </form>
       
       <div class="footer">
-        <a href="checklist.html">
+        <a href="list">
           打刻履歴確認ページへ
         </a>
       </div>
